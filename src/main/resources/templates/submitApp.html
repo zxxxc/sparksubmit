@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Spark任务提交</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>document.write(" <link  rel='stylesheet' type='text/css' href='css/submitApp/style.css?v=" + Date.now() + "'  media='all'>");</script>
+<script>document.write(" <link  rel='stylesheet' type='text/css' href='css/submitApp/default.css?v=" + Date.now() + "'  media='all'>");</script>
+<script>document.write(" <link  rel='stylesheet' type='text/css' href='css//submitApp/reset.css?v=" + Date.now() + "'  media='all'>");</script>
+<script>document.write("<script type='text/javascript' src='js/submitApp/modernizr.js?v=" + Date.now() + "'><\/script>");</script>
+<script src="js/submitApp/load.js" charset="utf-8"></script>
+<script>document.write(" <link  rel='stylesheet' type='text/css' href='css/submitApp/load.css?v=" + Date.now() + "'  media='all'>");</script>
+<script>document.write("<script type='text/javascript' src='js/constant.js?v=" + Date.now() + "'><\/script>");</script>
+<script>document.write("<script type='text/javascript' src='js/submitApp/request.js?v=" + Date.now() + "'><\/script>");</script>
+
+</head>
+<body>
+<div class="zzsc-container" id="submitDiv">
+	<!--<header class="zzsc-header bgcolor-11">
+		<h1>jQuery和CSS3超炫联系方式表单美化插件</h1>
+	</header>-->
+	<!--<div class="zzsc-content bgcolor-8">
+		
+	</div>-->
+	<form class="cd-form floating-labels">
+		<fieldset>
+			<legend>Spark App Info</legend>
+
+			<!--<div class="error-message">
+				<p>Please enter a valid email address</p>
+			</div>-->
+
+			<div class="icon">
+				<label class="cd-label" for="mainClass">mainClass</label>
+				<input class="user" type="text" name="mainClass" id="mainClass" th:value=${mainClass} required>
+			</div> 
+
+			<div class="icon">
+				<label class="cd-label" for="jarPath">jarPath</label>
+				<input class="company" type="text" name="jarPath" id="jarPath" th:value=${jarPath} required>
+			</div> 
+
+			<div class="icon">
+				<label class="cd-label" for="driverMemory">driverMemory</label>
+				<input class="company" type="text" name="driverMemory" id="driverMemory" required>
+			</div>
+
+			<div class="icon">
+				<label class="cd-label" for="executorMemory">executorMemory</label>
+				<input class="company" type="text" name="executorMemory" id="executorMemory" required>
+			</div>
+
+			<div class="icon">
+				<label class="cd-label" for="executorInstances">executorInstances</label>
+				<input class="company" type="text" name="executorInstances" id="executorInstances" required>
+			</div>
+
+			<div class="icon">
+				<label class="cd-label" for="executorCores">executorCores</label>
+				<input class="company" type="text" name="executorCores" id="executorCores" required>
+			</div>
+
+			<div class="icon">
+				<label class="cd-label" for="defaultParallelism">defaultParallelism</label>
+				<input class="company" type="text" name="defaultParallelism" id="defaultParallelism" required>
+			</div>
+
+			<div class="icon">
+				<label class="cd-label" for="driverExtraJavaOptions">driverExtraJavaOptions</label>
+				<input class="company" type="text" name="driverExtraJavaOptions" id="driverExtraJavaOptions" required>
+			</div>
+
+			<div class="icon">
+				<label class="cd-label" for="otherConf">otherConf</label>
+				<input class="company" type="text" name="otherConf" id="otherConf" required>
+			</div>
+		</fieldset>
+
+		<fieldset style="margin-top: -5%;">
+			<!--<legend>Project Info</legend>-->
+
+			<!--<div>
+				<h4>Budget</h4>
+
+				<p class="cd-select icon">
+					<select class="budget">
+						<option value="0">Select Budget</option>
+						<option value="1">&lt; $5000</option>
+						<option value="2">$5000 - $10000</option>
+						<option value="3">&gt; $10000</option>
+					</select>
+				</p>
+			</div> -->
+
+			<div>
+				<h4>master</h4>
+
+				<ul class="cd-form-list">
+					<li>
+						<input type="radio" name="radio-button1" id="cd-radio-1" value="yarn" checked>
+						<label for="cd-radio-1">Yarn</label>
+					</li>
+						
+					<li>
+						<input type="radio" name="radio-button1" id="cd-radio-2" value="StandAlone">
+						<label for="cd-radio-2">StandAlone</label>
+					</li>
+
+					<!--<li>
+						<input type="radio" name="radio-button" id="cd-radio-3">
+						<label for="cd-radio-3">Choice 3</label>
+					</li>-->
+				</ul>
+			</div>
+
+			<div>
+				<h4>deployMode</h4>
+
+				<ul class="cd-form-list">
+
+					<li>
+						<input type="radio" name="radio-button2" id="cd-radio-3" value="cluster" checked>
+						<label for="cd-radio-3">Cluster</label>
+					</li>
+
+					<li>
+						<input type="radio" name="radio-button2" id="cd-radio-4" value="client" >
+						<label for="cd-radio-4">Client</label>
+					</li>
+					<!--<li>
+						<input type="checkbox" id="cd-checkbox-1">
+						<label for="cd-checkbox-1">Cluster</label>
+					</li>
+
+					<li>
+						<input type="checkbox" id="cd-checkbox-2">
+						<label for="cd-checkbox-2">Client</label>
+					</li>
+
+					<li>
+						<input type="checkbox" id="cd-checkbox-3">
+						<label for="cd-checkbox-3">Option 3</label>
+					</li>-->
+				</ul>
+			</div>
+
+			<!--<div class="icon">
+				<label class="cd-label" for="cd-textarea">Project description</label>
+				<textarea class="message" name="cd-textarea" id="cd-textarea" required></textarea>
+			</div>-->
+
+			<!--<div>
+				<input type="submit" value="submit App" id="submitBtn">
+			</div>-->
+		</fieldset>
+	</form>
+	<div style="width: 46%;height: 120px;margin-left: 20%;margin-top: -5%;">
+		<input type="submit" value="submit App" id="submitBtn">
+	</div>
+</div>
+
+<div id="resultDiv" style="display: none">
+	<div>
+		<table id="mainResultTab">
+			<tr><td>Tracking URL：</td><td><a id="trackingUrl">点击链接</a></td></tr>
+			<tr><td>ApplicationId：</td><td id="applicationId"></td></tr>
+			<tr><td>ApplicationName：</td><td id="applicationName"></td></tr>
+		</table>
+	</div>
+</div>
+
+<script>document.write("<script type='text/javascript' src='js/submitApp/main.js?v=" + Date.now() + "'><\/script>");</script>
+
+<!--<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>-->
+</body>
+</html>

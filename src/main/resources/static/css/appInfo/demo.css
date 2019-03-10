@@ -1,0 +1,111 @@
+*{
+    padding:0;
+    margin:0;
+    list-style:none;
+    outline:none;
+}
+body,html{
+    background:#f7f7f7;
+}
+.wrapper{
+    width:600px;
+    height:850px;
+    overflow: auto;
+    background:#fff;
+    padding:15px;
+    margin:30px auto;
+    border-radius:5px;
+    box-shadow:0 1px 6px rgba(0,0,0,0.2)
+}
+.wrapper .search{
+    width:100%;
+    height:40px;
+}
+.wrapper .search .inp{
+    width:320px;
+    height:40px;
+    border:1px solid #ec9129;
+    line-height:40px;
+    padding:0 15px;
+    border-radius:3px;
+    float: left;
+}
+.wrapper .search .btn-list{
+    float: right;
+    height:40px; 
+}
+.wrapper .search .btn-list li{
+    float: left;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    width:60px;
+    border:1px solid #0bc7b7;
+    border-radius:3px;
+    margin-left:10px;
+    color:#0bc7b7;
+    cursor:pointer;
+}
+.wrapper .search .btn-list .active{
+    background:#0bc7b7;
+    color:#fff;
+}
+.wrapper .user{
+    width:100%;
+    margin-top:30px;
+}
+.wrapper .user li{
+    background:#f8f8f8;
+    border-radius:3px;
+    height:60px;
+    margin-bottom:15px;
+    padding:10px; 
+    cursor: pointer;
+    transition: all ease-in 0.2s; 
+    margin-bottom:15px; 
+}
+.wrapper .user li:hover{
+    background:#dff3eb;
+}
+.wrapper .user li:hover .tit .motto{
+
+}
+.wrapper .user li .head-img{
+    height:60px;
+    width:60px;
+    border-radius:50%;
+    overflow: hidden;
+    float: left;
+    box-shadow:0 1px 4px rgba(0,0,0,0.2);
+}
+.wrapper .user li .head-img img{
+    width:120%;
+}
+.wrapper .user li .tit{
+    float: right;
+    height:100%;
+    width:85%;
+    margin-top:5px;
+    
+}
+.wrapper .user li .tit .name{
+    font-size: 18px;
+    font-weight:bolder;
+    margin-bottom:8px;
+}
+.wrapper .user li .tit .motto{
+    font-size: 14px;
+    color:#5c5c5c;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.wrapper .prompt{
+    color:#d4d4d4;
+    height:50px;
+    text-align: center;
+    line-height: 50px;
+    background:#f8f8f8;
+    border-radius:3px; 
+    display: none;
+}

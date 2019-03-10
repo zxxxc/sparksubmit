@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Spark任务结果</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>document.write("<script type='text/javascript' src='js/constant.js?v=" + Date.now() + "'><\/script>");</script>
+</head>
+<body>
+<div id="resultDiv">
+    <div>
+        <table id="mainResultTab">
+            <tr><td>Tracking URL：</td><td><a id="trackingUrl">点击链接</a></td></tr>
+            <tr><td>ApplicationId：</td><td id="applicationId"></td></tr>
+            <tr><td>ApplicationName：</td><td id="applicationName"></td></tr>
+        </table>
+    </div>
+</div>
+<script th:inline="javascript">
+    var resultJson = JSON.parse([[${resultJson}]]);
+
+    $("#trackingUrl").attr("href",yarnAppUrl+resultJson.id);
+    $("#applicationId").html(resultJson.id);
+    $("#applicationName").html(resultJson.name);
+
+    for (var i=0;i<resultJson.attempts.length;i++)
+    {
+        $("#mainResultTab").after("</br><table id=\"attemptsInfoTab\"></table>");
+
+        $("#attemptsInfoTab").append(
+            "<tr><td>AttemptId：</td><td id=\"attemptId\"></td></tr>",
+            "<tr><td>StartTime：</td><td id=\"startTime\"></td></tr>",
+            "<tr><td>EndTime：</td><td id=\"endTime\"></td></tr>",
+            "<tr><td>Duration：</td><td id=\"duration\"></td></tr>",
+            "<tr><td>SparkUser：</td><td id=\"sparkUser\"></td></tr>",
+            "<tr><td>Completed：</td><td id=\"completed\"></td></tr>",
+            "<tr><td>AppSparkVersion：</td><td id=\"appSparkVersion\"></td></tr>"
+        );
+
+        $("#attemptId").html(resultJson.attempts[i].attemptId);
+        $("#startTime").html(resultJson.attempts[i].startTime);
+        $("#endTime").html(resultJson.attempts[i].endTime);
+        $("#duration").html(resultJson.attempts[i].duration+" ms");
+        $("#sparkUser").html(resultJson.attempts[i].sparkUser);
+        $("#completed").html(resultJson.attempts[i].completed);
+        $("#appSparkVersion").html(resultJson.attempts[i].appSparkVersion);
+    }
+</script>
+</body>
+</html>
